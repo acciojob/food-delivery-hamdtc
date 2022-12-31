@@ -4,7 +4,6 @@ import lombok.Builder;
 
 import javax.persistence.Entity;
 
-
 public class UserDetailsRequestModel {
 
 	private String firstName;

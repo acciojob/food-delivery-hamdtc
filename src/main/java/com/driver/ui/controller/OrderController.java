@@ -3,7 +3,7 @@ package com.driver.ui.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.driver.Converter.OrderConverter;
+import com.driver.ui.controller.Converter.OrderConverter;
 import com.driver.model.request.OrderDetailsRequestModel;
 import com.driver.model.response.OperationStatusModel;
 import com.driver.model.response.OrderDetailsResponse;
@@ -64,9 +64,9 @@ public class OrderController {
 	
 	@GetMapping()
 	public List<OrderDetailsResponse> getOrders() {
-		List<OrderDto> List = orderService.getOrders();
+		List<OrderDto> list = orderService.getOrders();
 		List<OrderDetailsResponse> responseList = new ArrayList<>();
-		for(OrderDto orderDto : List)
+		for(OrderDto orderDto : list)
 		{
 			OrderDetailsResponse orderDetailsResponse = OrderConverter.dtoToResponse(orderDto);
 			responseList.add(orderDetailsResponse);

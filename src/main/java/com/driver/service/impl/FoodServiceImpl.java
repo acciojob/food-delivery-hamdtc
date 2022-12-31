@@ -60,7 +60,7 @@ public class FoodServiceImpl implements FoodService {
     public List<FoodDto> getFoods() {
         List<FoodDto> list=new ArrayList<>();
 
-        Iterable<FoodEntity> list2=foodRepository.findAll();
+        List<FoodEntity> list2 = (List<FoodEntity>) foodRepository.findAll();
         for(FoodEntity food:list2){
             FoodDto foodDto=FoodDto.builder().id(food.getId()).foodId(food.getFoodId())
                     .foodName(food.getFoodName()).foodCategory(food.getFoodCategory())

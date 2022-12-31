@@ -3,7 +3,10 @@ package com.driver.shared.dto;
 import lombok.Builder;
 
 import java.io.Serializable;
-
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class OrderDto{
 

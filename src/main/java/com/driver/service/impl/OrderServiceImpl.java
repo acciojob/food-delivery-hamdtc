@@ -59,7 +59,7 @@ public class OrderServiceImpl implements OrderService {
 
         List<OrderDto> list=new ArrayList<>();
 
-        Iterable<OrderEntity> list2=orderRepository.findAll();
+        List<OrderEntity> list2 = (List<OrderEntity>) orderRepository.findAll();
         for(OrderEntity order:list2){
             OrderDto orderDto=OrderDto.builder().id(order.getId()).orderId(order.getOrderId())
                     .cost(order.getCost()).userId(order.getUserId()).items(order.getItems())

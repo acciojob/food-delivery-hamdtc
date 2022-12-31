@@ -4,7 +4,12 @@ import lombok.Builder;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
+
 public class FoodDto{
 
 	private long id;

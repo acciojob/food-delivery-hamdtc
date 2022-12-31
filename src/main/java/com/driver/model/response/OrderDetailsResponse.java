@@ -1,9 +1,14 @@
 package com.driver.model.response;
 
+
 import lombok.Builder;
 
-import javax.persistence.Entity;
 
+import javax.persistence.Entity;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class OrderDetailsResponse {
 

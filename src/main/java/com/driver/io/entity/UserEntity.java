@@ -1,7 +1,9 @@
 package com.driver.io.entity;
 
 import com.driver.shared.dto.UserDto;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -12,6 +14,8 @@ import javax.persistence.Id;
 
 @Entity(name = "users")
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserEntity{
 
 	@Id

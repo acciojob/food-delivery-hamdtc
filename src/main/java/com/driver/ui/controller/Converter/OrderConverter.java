@@ -1,4 +1,4 @@
-package com.driver.Converter;
+package com.driver.ui.controller.Converter;
 
 import com.driver.io.entity.OrderEntity;
 import com.driver.model.response.OrderDetailsResponse;
@@ -16,18 +16,6 @@ public class OrderConverter {
                     .userId(orderDto.getUserId())
                     .build();
             return orderDetailsResponse;
-        }
-        public static OrderDto entityToDto(OrderEntity orderEntity)
-        {
-            OrderDto orderDto = OrderDto.builder()
-                    .status(orderEntity.isStatus())
-                    .id(orderEntity.getId())
-                    .userId(orderEntity.getUserId())
-                    .orderId(orderEntity.getOrderId())
-                    .items(orderEntity.getItems())
-                    .cost(orderEntity.getCost())
-                    .build();
-            return orderDto;
         }
 
 }

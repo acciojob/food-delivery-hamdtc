@@ -3,13 +3,10 @@ package com.driver.ui.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.driver.Converter.FoodConverter;
-import com.driver.io.entity.FoodEntity;
+import com.driver.ui.controller.Converter.FoodConverter;
 import com.driver.model.request.FoodDetailsRequestModel;
 import com.driver.model.response.FoodDetailsResponse;
 import com.driver.model.response.OperationStatusModel;
-import com.driver.model.response.RequestOperationName;
-import com.driver.model.response.RequestOperationStatus;
 import com.driver.service.FoodService;
 import com.driver.shared.dto.FoodDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,20 +54,20 @@ public class FoodController {
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteFood(@PathVariable String id) throws Exception{
 		foodService.deleteFoodItem(id);
-		OperationStatusModel operationStatusModel = OperationStatusModel.builder().operationName(RequestOperationName.DELETE.name()).operationResult(RequestOperationStatus.SUCCESS.name()).build();
-		return operationStatusModel;
+
+		return new OperationStatusModel();
 	}
 	
 	@GetMapping()
 	public List<FoodDetailsResponse> getFoods() {
-		List<FoodDetailsResponse> foodDetailsResponseList = new ArrayList<>();
-		List<FoodDto> foodDtoList = foodService.getFoods();
-		for(FoodDto foodDto : foodDtoList)
+		List<FoodDetailsResponse> list = new ArrayList<>();
+		List<FoodDto> foodList = foodService.getFoods();
+		for(FoodDto foodDto : foodList)
 		{
 			FoodDetailsResponse foodDetailsResponse = FoodConverter.dtoToResponse(foodDto);
-			foodDetailsResponseList.add(foodDetailsResponse);
+			list.add(foodDetailsResponse);
 		}
-		return foodDetailsResponseList;
+		return list;
 
 	}
 }

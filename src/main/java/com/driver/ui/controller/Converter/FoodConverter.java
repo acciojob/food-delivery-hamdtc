@@ -1,4 +1,4 @@
-package com.driver.Converter;
+package com.driver.ui.controller.Converter;
 
 import com.driver.model.request.FoodDetailsRequestModel;
 import com.driver.model.response.FoodDetailsResponse;
@@ -14,8 +14,7 @@ public class FoodConverter {
         FoodDto foodDto = FoodDto.builder()
                 .foodName(foodDetailsRequestModel.getFoodName())
                 .foodPrice(foodDetailsRequestModel.getFoodPrice())
-                .foodCategory(foodDetailsRequestModel.getFoodCategory())
-                .foodId(UUID.randomUUID().toString()).build();
+                .foodCategory(foodDetailsRequestModel.getFoodCategory()).build();
         return foodDto;
     }
     public static FoodDetailsResponse dtoToResponse(FoodDto foodDto)

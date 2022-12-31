@@ -1,4 +1,4 @@
-package com.driver.Converter;
+package com.driver.ui.controller.Converter;
 
 import com.driver.io.entity.UserEntity;
 import com.driver.model.request.UserDetailsRequestModel;
@@ -16,16 +16,5 @@ public class UserConverter {
                 .userId(userDto.getUserId())
                 .build();
         return userResponse;
-    }
-    public static UserDto entityToDto(UserEntity userEntity)
-    {
-        UserDto userDto = UserDto.builder()
-                .firstName(userEntity.getFirstName())
-                .lastName(userEntity.getLastName())
-                .email(userEntity.getEmail())
-                .userId(userEntity.getUserId())
-                .id(userEntity.getId())
-                .build();
-        return  userDto;
     }
 }

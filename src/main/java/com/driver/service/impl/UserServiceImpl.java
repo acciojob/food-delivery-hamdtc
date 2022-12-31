@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
     public List<UserDto> getUsers() {
         List<UserDto> list=new ArrayList<>();
 
-        Iterable<UserEntity> list2=userRepository.findAll();
+        List<UserEntity> list2 = (List<UserEntity>) userRepository.findAll();
         for(UserEntity user:list2){
             UserDto userDto=UserDto.builder().id(user.getId()).userId(user.getUserId())
                     .firstName(user.getFirstName()).lastName(user.getLastName())

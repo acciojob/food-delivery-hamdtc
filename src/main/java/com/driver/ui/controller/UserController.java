@@ -3,11 +3,9 @@ package com.driver.ui.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.driver.Converter.UserConverter;
+import com.driver.ui.controller.Converter.UserConverter;
 import com.driver.model.request.UserDetailsRequestModel;
 import com.driver.model.response.OperationStatusModel;
-import com.driver.model.response.RequestOperationName;
-import com.driver.model.response.RequestOperationStatus;
 import com.driver.model.response.UserResponse;
 import com.driver.service.UserService;
 import com.driver.shared.dto.UserDto;
@@ -31,12 +29,7 @@ public class UserController {
 	@GetMapping(path = "/{id}")
 	public UserResponse getUser(@PathVariable String id) throws Exception{
 		UserDto userDto = userService.getUserByUserId(id);
-		UserResponse userResponse = UserResponse.builder().
-				userId(userDto.getUserId()).
-				firstName(userDto.getFirstName()).
-				lastName(userDto.getLastName()).
-				email(userDto.getEmail()).
-				build();
+		UserResponse userResponse = UserConverter.dtoToResponse(userDto);
 		return userResponse;
 	}
 	@PostMapping()
@@ -46,7 +39,6 @@ public class UserController {
 				lastName(userDetails.getLastName()).
 				email(userDetails.getEmail()).
 				build();
-
 
 		UserDto userDto1= userService.createUser(userDto);
 		UserResponse userResponse = UserConverter.dtoToResponse(userDto1);
@@ -67,11 +59,8 @@ public class UserController {
 
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteUser(@PathVariable String id) throws Exception{
-		OperationStatusModel operationStatusModel1 = OperationStatusModel.builder()
-				.operationName(RequestOperationName.DELETE.toString())
-				.operationResult(RequestOperationStatus.SUCCESS.toString())
-				.build();
-		return operationStatusModel1;
+		userService.deleteUser(id);
+		return new OperationStatusModel();
 	}
 	
 	@GetMapping()
