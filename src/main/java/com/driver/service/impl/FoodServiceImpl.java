@@ -1,11 +1,9 @@
 package com.driver.service.impl;
 
 import com.driver.io.entity.FoodEntity;
-import com.driver.io.entity.UserEntity;
 import com.driver.io.repository.FoodRepository;
 import com.driver.service.FoodService;
 import com.driver.shared.dto.FoodDto;
-import com.driver.shared.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;

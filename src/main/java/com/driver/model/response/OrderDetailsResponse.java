@@ -4,7 +4,7 @@ import lombok.Builder;
 
 import javax.persistence.Entity;
 
-
+@Builder
 public class OrderDetailsResponse {
 
 	private String orderId;

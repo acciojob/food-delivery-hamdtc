@@ -1,12 +1,9 @@
 package com.driver.service.impl;
 
 import com.driver.io.entity.OrderEntity;
-import com.driver.io.entity.UserEntity;
 import com.driver.io.repository.OrderRepository;
 import com.driver.service.OrderService;
 import com.driver.shared.dto.OrderDto;
-import com.driver.shared.dto.UserDto;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
